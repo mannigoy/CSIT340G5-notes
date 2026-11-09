@@ -90,7 +90,7 @@ function Notes() {
       <section className="px-12 py-11">
         <h2 className="mb-6 text-3xl">All notes</h2>
         <ul className="grid grid-cols-3 items-start gap-5">
-          {noNotes()}
+         noNotes()
             {notes.map((note) => (
                 <li key={note.id}
                      className="relative min-h-32 bg-white px-6 py-5 shadow-[0_2px_4px_0_rgba(0,0,0,0.2),0_25px_50px_0_rgba(0,0,0,0.1)]">
