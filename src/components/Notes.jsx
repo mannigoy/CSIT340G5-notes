@@ -22,6 +22,20 @@ function Notes() {
         setDraft((prevDraft) => ({ ...prevDraft, [name]: value }));
        
     }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (draft.title.trim() === "" || draft.body.trim() === "") {
+            return;
+        }
+        const newNote = {
+            id: Date.now(),
+            title: draft.title,
+            body: draft.body,
+        };
+        setNotes((prevNotes) => [...prevNotes, newNote]);
+        setDraft({ title: "", body: "" });
+    }
+
 
   return (
     <div className="grid min-h-screen grid-cols-[420px_1fr]">
@@ -54,6 +68,7 @@ function Notes() {
           />
            <button
             type="submit"
+            onClick={handleSubmit}
             className="h-[50px] cursor-pointer bg-[#b83f45] text-[17px] font-normal text-white hover:bg-[#a33439]"
           >
             Add note
