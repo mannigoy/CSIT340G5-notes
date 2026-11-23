@@ -52,6 +52,15 @@ function Notes() {
         localStorage.setItem('notes', JSON.stringify(notes))
     }, [notes])
 
+      useEffect(() => {
+   
+      const id = setTimeout(() => {
+       localStorage.setItem('draft', JSON.stringify(draft))
+       console.log('draft saved:', draft.title)
+     }, 1000)
+    return () => clearTimeout(id)
+   }, [draft])
+
     const handleSearch = (e) => {
   setSearchTerm(e.target.value);
 };
