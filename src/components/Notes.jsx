@@ -1,5 +1,5 @@
 import NoteCard from './NoteCard.jsx'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 function Notes() {
 
     const [notes, setNotes] = useState([
@@ -67,9 +67,12 @@ function Notes() {
   setSearchTerm(e.target.value);
 };
 
-const visibleNotes = notes.filter((note) =>
-  note.title.toLowerCase().includes(searchTerm.toLowerCase())
-);
+    const visibleNotes = useMemo(() => {
+        console.log('filtering')
+        return notes.filter((note) =>
+            note.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+    }, [notes, searchTerm])
     
 
 
