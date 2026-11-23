@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 function Notes() {
 
     const [notes, setNotes] = useState([
-        {
-             id: 1,
+  {
+    id: 1,
              title: "Review map and filter",
             body: "Redo the TodoMVC steps without looking at the guide.",
-        },
-        {
-            id: 2,
+  },
+  {
+    id: 2,
             title: "Prepare for the quiz",
             body: "Practice writing one handler for many inputs.",
         }
